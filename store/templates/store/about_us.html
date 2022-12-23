@@ -1,0 +1,50 @@
+{% extends 'store/layouts/main.html' %}
+
+
+{% block content %}
+
+<div class='py-3 bg-primary'>
+    <div class='container'>
+        <a class="text-white" href="{% url 'home' %}">Главная /</a>
+        <a class="text-white" href="{% url 'about_us' %}">О нас /</a>
+    </div>
+</div>
+
+<div class='container mt-2 mb-3 '>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='card shadow w-100 btnAccordion collapsed ' id="mainContent"  data-toggle="collapse" data-target="#faqAccordion3" aria-expanded="false">
+                <h3 class="p-2 mt-3">О нас</h3>
+                <hr>
+                <p class="text-dark col-md-11 p-2">Kalach - интернет-магазин модной галоши!
+                    Мы продолжаем развиваться, расширяем свое присутствие и улучшаем наш сервис, чтобы радовать вас каждый
+                    день!</p>
+                <p class="text-dark col-md-11 p-2 ">Компания Kalach была создана в 2010 году. Все начиналось тогда с выпуска всего 1-й модели галош для деловой
+                    обуви 1-го цвета. Теперь компания производит 5 моделей галош более чем 100 цветов. 2 модели мужских и 2
+                    женских. </p>
+                <p class="text-dark col-md-11 p-2 ">Компания «Kalach» является оптово-розничной. У нас можно заказать в розницу или оптом с доставкой в регионы.
+                </p>
+                <p class="text-dark col-md-11 p-2 ">Приглашаем к сотрудничеству обувные и ортопедические магазины и готовы принять заказ по самым минимальным
+                    ценам.</p>
+                <br>
+                <h3 class="col-md-11 p-2">Владелец</h3>
+                <br>
+                <div class="d-flex">
+                    <img width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8A2wOvDj7sAobit1mD4lCc6ilEaBm_CF3AQ&usqp=CAU" class="img-fluid" alt="...">
+                    <div class="">
+                        <h3 class="col-md-8 ">Шахобидин</h3>
+                        <p class="text-dark col-md-7 ">Менеджер оптовых поставок, г. ОШ. Обработка входящей информации, информирование партнеров о
+                            предстоящих новинках и акциях компании, ведение переговоров, контроль доставки грузов транспортными
+                            компаниями,  работа с менеджерами обувных
+                            сетей по обратной связи с розничными покупателями.</p>
+                        <p class="text-dark col-md-7 ">Tel: +996 559 256 662</p>
+                        <p class="text-dark col-md-5 ">E-mail: salamkarasu51@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

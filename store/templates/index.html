@@ -1,0 +1,168 @@
+{% extends 'store/layouts/main.html' %}
+
+
+
+
+
+{% block content %}
+
+    
+
+
+    {% include 'store/inc/slider.html' %}
+
+
+    <div class='container my-5'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <h3> Трендовые товары</h3>
+                <hr>
+                <div class='row owl-carousel owl-theme'>
+                    {% for item in trending_products %}
+                    <div class='product_data item'>
+                        <div class='card'>
+                            <div class='card-body'>
+                                <a href="{% url 'productview' item.category.slug item.slug %}">
+                                    <div class='category-image'>
+                                        <img src="{{ item.product_image.url}}" alt="Product image" class="w-100" />
+                                    </div>
+                                    <h4 class="text-center">{{ item.name}}</h4>
+                                </a>
+                                <span class="float-start"><s>{{ item.original_price}}</s></span>
+                                <span class="float-end">{{ item.selling_price }}</span>
+                                <br>
+                                <div class='row mt-2'>
+                                    <div class='col-md-6'>
+                                        {% csrf_token %}
+                                        <input type="hidden" value="{{ item.id }}" class="prod_id">
+                                        <div class='input-group text-center mb-3' >
+                                        <button class='input-group-text decrement-btn'>-</button>
+                                        <input type="text" name="quantity" class="form-control qty-input text-center" value="1">
+                                        <button class='input-group-text increment-btn'>+</button>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 px-0'>
+                                        <span class=" mb-2">
+                                            {% if item.quantity > 0 %}
+                                                <button type="button" class="btn btn-primary btn-sm me-3 py-2  addToCartBtn" >Добавить в <i class="fa-solid fa-basket-shopping"></i> </button>
+                                            {% else %}
+                                                <button type="button" class="btn btn-danger btn-sm me-3 py-2 disabled " >Нет на складе</button>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <div class='card'>
+                    <div class='card-body' style=" height: 33vh; background-image:url('https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/BlueRidgePrkwy.jpg?crop=0%2C231%2C4000%2C2200&wid=4000&hei=2200&scl=1.0'); background-position: center; background-attachment: fixed; background-repeat: no-repeat;">
+                        <div class=' d-flex col-md-12'>
+                            <i style="color: orangered;" class="fa-solid fa-6x fa-envelopes-bulk p-5 "></i>
+                            <div class=" col-md-5 mt-5  " >
+                                <h5 style="width: 450px; color: aliceblue;">Хотите знать о новом поступлениях или о товарaх со скидками?
+                                </h5>
+                                <h6 style="color: aliceblue;">Подпишитесь и получайте рассылки</h6>
+                            </div>
+                            <form>
+                                <div style="position: relative; " class="formGroup mt-5  ">
+                                    <input required name="search" style="width: 310px; height: 50px; border-radius: 180px;padding: 0 35px;"
+                                        placeholder="Ваш E-mail" type="text">
+                                    <button
+                                        style="background-color: transparent; border: 0px solid; margin-right: 35px; position: absolute; z-index: 10; right: 5px; top: 7px;"
+                                        class="btn me-1" type="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container my-5'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <h3> Товары</h3>
+                <hr>
+                <div class='row owl-carousel owl-theme'>
+                    {% for item in trending_products %}
+                    <div class='product_data item'>
+                        <div class='card'>
+                            <div class='card-body'>
+                                <a href="{% url 'productview' item.category.slug item.slug %}">
+                                    <div class='category-image'>
+                                        <img src="{{ item.product_image.url}}" alt="Product image" class="w-100" />
+                                    </div>
+                                    <h4 class="text-center">{{ item.name}}</h4>
+                                </a>
+                                <span class="float-start"><s>{{ item.original_price}}</s></span>
+                                <span class="float-end">{{ item.selling_price }}</span>
+                                <br>
+                                <div class='row mt-2'>
+                                    <div class='col-md-6'>
+                                        {% csrf_token %}
+                                        <input type="hidden" value="{{ item.id }}" class="prod_id">
+                                        <div class='input-group text-center mb-3' >
+                                        <button class='input-group-text decrement-btn'>-</button>
+                                        <input type="text" name="quantity" class="form-control qty-input text-center" value="1">
+                                        <button class='input-group-text increment-btn'>+</button>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 px-0'>
+                                        <span class=" mb-2">
+                                            {% if item.quantity > 0 %}
+                                                <button type="button" class="btn btn-primary btn-sm me-3 py-2  addToCartBtn" >Добавить в  <i class="fa-solid fa-basket-shopping"></i> </button>
+                                            {% else %}
+                                                <button type="button" class="btn btn-danger btn-sm me-3 py-2 disabled " >
+                                                    Нет на складе</button>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        dots:false,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:4
+            }
+        }
+    })
+</script>
+{% endblock scripts %}
+

@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg bg-dark  ">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav  me-auto  mb-2 mb-lg-0  ">
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %} text-white" aria-current="page" href="{% url 'home' %}">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'about_us' %}active{% endif %} text-white" aria-current="page" href="{% url 'about_us' %}">О нас</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'collections' %}active{% endif %} text-white " href="{% url 'collections' %} ">Товары</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'questions' %}active{% endif %} text-white " href="{% url 'questions' %} ">Вопросы и ответы</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link {% if request.resolver_match.url_name == 'orderss' %}active{% endif %} text-white " href="{% url 'orderss' %} ">Как оформить заказ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'news' %}active{% endif %} text-white " href="{% url 'news' %} ">Новинки </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'partner' %}active{% endif %} text-white " href="{% url 'partner' %} ">Корпоративным клиентам </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'contacts' %}active{% endif %} text-white " href="{% url 'contacts' %} ">Контакты </a>
+        </li>
+      </ul>
+      <a class="navbar-text text-white" href="tel: +996 (559) 256 662">
+        +996 (559) 256 662
+      </a>
+      
+    </div>
+  </nav>
+  
+</div>
+<nav class="navbar navbar-expand-lg bg-light mt-2 mb-2">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">E-shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="search-bar">
+        <form action="{% url 'searchproduct' %}"  method="POST">
+          {% csrf_token %}
+            <div class="input-group" >
+                <input required class="form-control" name="productsearch" id="searchproducts" type="search" placeholder="Search products" >
+                <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+          </form>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto ">
+          
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'cart' %}active{% endif %} " aria-current="page" href="{% url 'cart' %}">Корзина</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'wishlist' %}active{% endif %}" aria-current="page" href="{% url 'wishlist' %}">Избранные</a>
+          </li>
+          {% if request.user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url 'home' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ request.user }}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'myorder' %}">Мои заказы</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'logoutpage' %}">Выйти</a></li>
+              </ul>
+            </li>
+          {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'loginpage' %}">Войти</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
+              </li>
+          {% endif %}
+        </ul>
+       
+      </div>
+    </div>
+  </nav>

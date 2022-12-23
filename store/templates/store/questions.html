@@ -1,0 +1,48 @@
+{% extends 'store/layouts/main.html' %}
+
+
+{% block content %}
+
+<div class='py-3 bg-primary'>
+    <div class='container'>
+        <a class="text-white" href="{% url 'home' %}">Главная /</a>
+        <a class="text-white" href="{% url 'questions' %}">Вопросы и ответы /</a>
+    </div>
+</div>
+
+
+<div class='container mt-2 mb-3 '>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='card shadow w-100 '>
+                <h1 class="titleMain mt-3">Вопросы и ответы</h1>
+                <hr>
+                <div class="btnAccordion collapsed" data-toggle="collapse" data-target="#faqAccordion3" aria-expanded="false">
+                    <span style="color: white; background-color: rgb(80, 206, 80);" class="number ">Вопросы 1</span>
+                    <p style="background-color: rgb(91, 91, 230); color: aliceblue;" class="title-faq">На товары есть гарантия?</p>
+                
+                    <p>В нашем магазине вы получите гарантию на все товары, гарантийный срок - 3 года.&nbsp;Если у товара
+                        обнаружится заводской брак, мы заменим его на другой в течение 3-х дней, если вас не устроит качество
+                        товара, мы вернем вам деньги.</p>
+                
+                    <span style="color: white; background-color: rgb(80, 206, 80);" class="number">Вопросы 2</span>
+                    <p style="background-color:  rgb(91, 91, 230);; color: aliceblue;" class="title-faq">Как оплатить?</p>
+                
+                    <p>При заказе с доставкой вы можете оплатить покупку курьеру наличными или через "Элсом"&nbsp;после
+                        получения товара и его проверки. В случае самовывоза вы можете оплатить покупку любым удобным вам
+                        способом: наличными или&nbsp;картой (Элкарт, Visa).</p>
+                    <span style="color: white; background-color: rgb(80, 206, 80);" class="number">Вопросы 3</span>
+                    <p style="background-color:  rgb(91, 91, 230);; color: aliceblue;" class="title-faq">Как приобрести технику в
+                        кредит?</p>
+                
+                    <p>Вам необходимо выбрать товар на нашем сайте, собрать необходимые документы (паспорт, справку о заработной
+                        плате, справку об отчислениях в соцфонд), получить одобрение от банка и внести первоначальный взнос. Мы
+                        работаем со следующими банками: ЭкоИсламик Банк, Бай Тушум, Дос Кредо Банк, БТА, KICB.&nbsp;</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
