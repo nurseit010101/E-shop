@@ -12,23 +12,23 @@
 </div>
 
 
-<div class='container'>
+<div class='container mt-2 mb-3 '>
     <div class='row'>
-        <div class='col-md-12'>
+        <div class='col-md-12 '>
             <h1> {{category.name}}</h1>
             <hr>
             <div class='row'>
                 {% for item in products %}
-                <div class='col-md-3'>
-                    <div class='card'>
+                <div class='col-md-3 p-1'>
+                    <div class='card  '>
                         <a href="{% url 'productview' item.category.slug item.slug %}">
                             <div class='card-body'>
                                 <div class='category-image'>
-                                    <img src="{{ item.product_image.url}}" alt="Product image" class="w-100" />
+                                    <img height='200px' src="{{ item.product_image.url}}" alt="Product image" class="w-100" />
                                 </div>
                                 <h4 class="text-center">{{ item.name}}</h4>
-                                <span class='float-start'>{{item.original_price | stringformat:'d' }}</span>
-                                <span class='float-end'>{{item.selling_price | stringformat:'d' }}</span>
+                                <span class='float-start'>{{item.original_price | stringformat:'d' }} Сом</span>
+                                <span class='float-end'>{{item.selling_price | stringformat:'d' }} Сом</span>
                             </div>
                         </a>
                     </div>

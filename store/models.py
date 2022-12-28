@@ -20,9 +20,6 @@ class Category(models.Model):
     description = models.TextField(max_length=500, null=False, blank=False,verbose_name='Описание Категории ')
     status = models.BooleanField(default=False, help_text="0=default, 1=Hidden",verbose_name='Статус Категории ')
     trending = models.BooleanField(default=False, help_text="0=default, 1=trending",verbose_name='В тренде')
-    meta_title = models.CharField(max_length=150, null=False, blank=False,verbose_name='Мета-заголовок ')
-    meta_keywords = models.CharField(max_length=150, null=False, blank=False,verbose_name='Мета ключевые слова')
-    meta_description = models.TextField(max_length=500, null=False, blank=False,verbose_name='Мета описание')
     created_at = models.DateTimeField(auto_now_add=True,verbose_name='Время')
 
 
@@ -33,9 +30,11 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(Category,  on_delete=models.CASCADE,verbose_name='Категория')
     slug = models.CharField(max_length=150, null=False, blank=False,verbose_name='Слаг')
-    name = models.CharField(max_length=150, null=False, blank=False,verbose_name='Имя товара')
+    name = models.CharField(max_length=150, null=False, blank=False,verbose_name='Имя товара')  
+    sender_name = models.CharField(max_length=150, null=False, blank=False,verbose_name='Отправитель товара')  
     product_image = models.ImageField(upload_to=get_file_path, null=True, blank=True,verbose_name='Изображение продукта')
     small_description = models.CharField(max_length=250, null=False, blank=False,verbose_name='Небольшое описание')
+    size_of_product = models.CharField(max_length=150, null=False, blank=False,verbose_name='Размер товара ')  
     quantity = models.IntegerField(null=False, blank=False,verbose_name='Количество')
     description = models.TextField(max_length=500, null=False, blank=False,verbose_name='Описание')
     original_price = models.FloatField(null=False, blank=False,verbose_name='Первоначальная цена')
@@ -43,10 +42,7 @@ class Product(models.Model):
     status = models.BooleanField(default=False, help_text="0=default, 1=Hidden",verbose_name='Статус')
     trending = models.BooleanField(default=False, help_text="0=default, 1=trending",verbose_name='В тренде')
     tag = models.CharField(max_length=150, null=False, blank=False,verbose_name='Тег')
-    meta_title = models.CharField(max_length=150, null=False, blank=False,verbose_name='Мета-заголовок')
-    meta_keywords = models.CharField(max_length=150, null=False, blank=False,verbose_name='Мета ключевые слова')
-    meta_description = models.TextField(max_length=500, null=False, blank=False,verbose_name='Мета описание')
-    created_at = models.DateTimeField(auto_now_add=True,verbose_name='Время')
+    created_at = models.DateTimeField(auto_now_add=True,verbose_name='Дат добавление')
 
 
     def __str__(self):
@@ -141,3 +137,20 @@ class Contacts(models.Model):
     gmail = models.CharField(max_length=150, verbose_name='Е-мейл',null=False)
     number = models.CharField(max_length=150, verbose_name='Телефон',null=False)
     message = models.CharField(max_length=150, verbose_name='Сообщение',null=False)
+    created_at = models.DateTimeField(verbose_name='Date', auto_now=True, auto_now_add=False)
+
+
+
+
+class news_email(models.Model):
+    email = models.CharField(max_length=150, verbose_name='Е-мейл',null=False)
+    created_at = models.DateField(auto_now_add=True,verbose_name='Время')
+
+
+class ForAdmin(models.Model):
+    report_per_day = models.CharField(null=False, max_length=150, verbose_name='Прибыль за один день') 
+    report_per_week = models.CharField(null=False, max_length=150, verbose_name='Прибыль за одну неделю') 
+    report_per_month = models.CharField(null=False, max_length=150, verbose_name='Прибыль за один месяц') 
+    report_per_season = models.CharField(null=False, max_length=150, verbose_name='Прибыль за один сезон') 
+    report_per_year = models.CharField(null=False, max_length=150, verbose_name='Прибыль за один год') 
+    created_at = models.DateField(auto_now_add=True,verbose_name='Время')

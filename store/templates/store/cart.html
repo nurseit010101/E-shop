@@ -11,22 +11,22 @@
 </div>
 
 
-<div class='container mt-2 mb-3'>
+<div class='container mt-2 mb-3 '>
     <div class='row'>
-        <div class='col-md-12'>
+        <div class='col-md-12 '>
             <div class='card shadow '>
-                <div class='card-body cartdata'>
+                <div class='card-body cartdata '>
                     {% if cart %}
                         {% for item in cart %}
                             <div class='row product_data'>
                                 <div class='col-md-2 my-auto'>
-                                    <img src="{{ item.product.product_image.url }}" height="70px" width="70px" alt="Image here">
+                                    <img height='100px' src="{{ item.product.product_image.url }}" height="70px" width="70px" alt="Image here">
                                 </div>
                                 <div class='col-md-3 my-auto'>
                                     <h6>{{ item.product.name }}</h6>
                                 </div>
                                 <div class='col-md-2 my-auto'>
-                                    <h6> Rs {{ item.product.selling_price | stringformat:'d' }}</h6>
+                                    <h6>  {{ item.product.selling_price | stringformat:'d' }} Сом</h6>
                                 </div>
                                 <div class='col-md-3 my-auto'>
                                     <input type="hidden" class="prod_id" value="{{ item.product.id }}">

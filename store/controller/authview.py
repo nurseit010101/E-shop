@@ -41,3 +41,6 @@ def logoutpage(request):
         messages.success(request, "Logged out Successfully")
     return redirect("/")
 
+def admin_person(request):
+    
+    return render(request, "store/auth/admin_person.html")

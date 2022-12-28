@@ -27,8 +27,7 @@
                             </div>
                             <div class='col-md-6 '>
                                 <label>Фамилия </label>
-                                <input type="text" required  value="{{ request.user.last_name }}" class="form-control" name="lname" placeholder="
-                                Введите вашу фамилию">
+                                <input type="text" required  value="{{ request.user.last_name }}" class="form-control" name="lname" placeholder="Введите вашу фамилию">
                             </div>
                             <div class='col-md-6 mt-2'>
                                 <label>Электронное письмо</label>
@@ -36,8 +35,7 @@
                             </div>
                             <div class='col-md-6 mt-2'>
                                 <label>Телефон </label>
-                                <input type="text" required  value="{{ userprofile.phone }}" class="form-control" name="phone" placeholder="
-                                Введите свой телефон">
+                                <input type="text" required  value="{{ userprofile.phone }}" class="form-control" name="phone" placeholder="Введите свой телефон">
                             </div>
                             <div class='col-md-12 mt-2'>
                                 <label> Адрес </label>
@@ -90,7 +88,7 @@
                                 </tbody>
                             </table>
                             <h6 class="fw-bold">Общая сумма
-                                <span class="float-end"> Rs {{ total_price | stringformat:'d' }} </span>
+                                <span class="float-end">  {{ total_price | stringformat:'d' }} Сом </span>
                             </h6>
                             <input type="hidden" value="COD" name="payment_mode">
                             <div class="mt-3">

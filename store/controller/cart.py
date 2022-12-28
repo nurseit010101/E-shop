@@ -18,11 +18,11 @@ def addtocart(request):
                         Cart.objects.create(user=request.user,product_id=prod_id, product_qty=prod_qty)
                         return JsonResponse({'status':"Продукт успешно добавлен"})
                     else:
-                        return JsonResponse({'status':"Only " + str(product_check.quantity) + " quantity available "})
+                        return JsonResponse({'status':"Только " + str(product_check.quantity) + " количество в наличии "})
             else:
                 return JsonResponse({'status':"Такой товар не найден"})
         else:
-            return JsonResponse({'status':"Войдите, чтобы продолжить"})
+            return JsonResponse({'status':"Регистрируйтесь, чтобы продолжить"})
     return redirect('/')
 
 

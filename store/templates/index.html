@@ -17,19 +17,19 @@
             <div class='col-md-12'>
                 <h3> Трендовые товары</h3>
                 <hr>
-                <div class='row owl-carousel owl-theme'>
+                <div class='row '>
                     {% for item in trending_products %}
-                    <div class='product_data item'>
+                    <div class='col-md-3 product_data p-1'>
                         <div class='card'>
                             <div class='card-body'>
                                 <a href="{% url 'productview' item.category.slug item.slug %}">
                                     <div class='category-image'>
-                                        <img src="{{ item.product_image.url}}" alt="Product image" class="w-100" />
+                                        <img  height='200px' src="{{ item.product_image.url }}" alt="Product image" class="w-100" />
                                     </div>
                                     <h4 class="text-center">{{ item.name}}</h4>
                                 </a>
-                                <span class="float-start"><s>{{ item.original_price}}</s></span>
-                                <span class="float-end">{{ item.selling_price }}</span>
+                                <span class="float-start"><s>{{ item.original_price | stringformat:'d'}} Сом</s></span>
+                                <span class="float-end">{{ item.selling_price | stringformat:'d' }} Сом</span>
                                 <br>
                                 <div class='row mt-2'>
                                     <div class='col-md-6'>
@@ -72,13 +72,14 @@
                                 </h5>
                                 <h6 style="color: aliceblue;">Подпишитесь и получайте рассылки</h6>
                             </div>
-                            <form>
+                            <form method="POST" action="/email_news/">
+                                {% csrf_token %}
                                 <div style="position: relative; " class="formGroup mt-5  ">
                                     <input required name="search" style="width: 310px; height: 50px; border-radius: 180px;padding: 0 35px;"
                                         placeholder="Ваш E-mail" type="text">
                                     <button
                                         style="background-color: transparent; border: 0px solid; margin-right: 35px; position: absolute; z-index: 10; right: 5px; top: 7px;"
-                                        class="btn me-1" type="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                        class="btn me-1" type="search"><i class="fa-solid fa-paper-plane"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -93,18 +94,18 @@
                 <h3> Товары</h3>
                 <hr>
                 <div class='row owl-carousel owl-theme'>
-                    {% for item in trending_products %}
+                    {% for item in usual_products %}
                     <div class='product_data item'>
                         <div class='card'>
                             <div class='card-body'>
                                 <a href="{% url 'productview' item.category.slug item.slug %}">
                                     <div class='category-image'>
-                                        <img src="{{ item.product_image.url}}" alt="Product image" class="w-100" />
+                                        <img height='200px'  src="{{ item.product_image.url}}" alt="Product image" class="w-100" />
                                     </div>
                                     <h4 class="text-center">{{ item.name}}</h4>
                                 </a>
-                                <span class="float-start"><s>{{ item.original_price}}</s></span>
-                                <span class="float-end">{{ item.selling_price }}</span>
+                                <span class="float-start"><s>{{ item.original_price | stringformat:'d'}} Сом</s></span>
+                                <span class="float-end">{{ item.selling_price | stringformat:'d' }} Сом</span>
                                 <br>
                                 <div class='row mt-2'>
                                     <div class='col-md-6'>

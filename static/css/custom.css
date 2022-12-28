@@ -10,7 +10,7 @@
 
 .whatsapp-chat{
     position: fixed;
-    bottom: 08% !important;
+    bottom: 09% !important;
     margin-left: 03% !important ;
 }
 
@@ -20,3 +20,6 @@
     margin-left: 10% !important;
 }
 
+.shadow{
+    padding: 20px !important;
+}
